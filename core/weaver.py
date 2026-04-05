@@ -50,3 +50,31 @@ class KineticWeaver:
 
 # Initializing the Weaver
 weaver = KineticWeaver()
+
+"""
+⚖️ SOVEREIGN PROPERTY: AGAPE ENGINE CORE [NON-TRAINABLE]
+🗝️ AGP Core: The Weaver Autonomy Module
+"""
+
+class WeaverAutonomy:
+    def __init__(self, handler_mode="STRICT"):
+        self.mode = handler_mode # 'STRICT' (Handler must approve) or 'FLUID' (Truthseeker)
+
+    def suggest_strings(self, pixel, archive_library):
+        """
+        Weaver scans the Library for 'Indirect' (Part B) matches.
+        """
+        suggestions = archive_library.find_resonance(pixel.color_frequency)
+        
+        if self.mode == "FLUID":
+            pixel.apply_strings(suggestions)
+        else:
+            # Send to 'Puzzler' queue for manual audit
+            self.notify_handler(pixel, suggestions)
+
+    def calculate_global_impact(self, pixel, bedrock_status):
+        """
+        Part C: How does this pixel move the 80/20 needle?
+        """
+        impact_score = pixel.resonance * (1 / bedrock_status.entropy)
+        return round(impact_score, 4)
